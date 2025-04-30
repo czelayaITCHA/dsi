@@ -12,6 +12,99 @@ Las bases de datos relacionales están basadas en un modelo estructurado de dato
 - **Clave foránea (FK)**: Atributo que se refiere a la clave primaria de otra entidad.
 - **Relación**: Asociación entre entidades.
 
+#### 1.1.1 Tipos de Relaciones en Bases de Datos Relacionales
+
+En el modelo de base de datos relacional, las relaciones se establecen entre entidades a través de **claves**. Estas relaciones definen cómo los datos de una entidad están vinculados a los datos de otra. Comprender los tipos de relaciones es fundamental para diseñar bases de datos eficientes y coherentes.
+
+Existen principalmente tres tipos de relaciones:
+
+##### 1. Relación Uno a Uno (1:1)
+
+En una relación uno a uno, cada fila de una tabla está relacionada con **como máximo una** fila de otra tabla, y viceversa. Esta relación es menos común que otras y a menudo indica que la información podría estar contenida en una sola tabla. Sin embargo, puede ser útil para:
+
+* **Dividir una tabla con muchas columnas** para mejorar la legibilidad o por razones de seguridad.
+* **Almacenar información opcional** que no aplica a todas las filas de la tabla principal.
+
+**Ejemplo:**
+
+Consideremos dos tablas: `personas` y `pasaportes`.
+
+| Tabla `personas` |
+| :--------------- |
+| `id` (PK)        |
+| `nombre`         |
+| `apellido`       |
+| `fecha_nacimiento` |
+
+| Tabla `pasaportes` |
+| :----------------- |
+| `id` (PK)          |
+| `numero_pasaporte` |
+| `fecha_emision`    |
+| `fecha_expiracion` |
+| `persona_id` (FK)  |
+
+En este ejemplo, cada persona puede tener **como máximo un** pasaporte asociado, y cada pasaporte pertenece a **exactamente una** persona. La clave foránea `persona_id` en la tabla `pasaportes` establece esta relación.
+
+## 2. Relación Uno a Muchos (1:N)
+
+En una relación uno a muchos, una fila de una tabla puede estar relacionada con **cero o muchas** filas de otra tabla, pero una fila de la segunda tabla solo puede estar relacionada con **una** fila de la primera tabla. Esta es una de las relaciones más comunes en las bases de datos relacionales.
+
+**Ejemplo:**
+
+Consideremos dos tablas: `autores` y `libros`.
+
+| Tabla `autores` |
+| :-------------- |
+| `id` (PK)       |
+| `nombre`        |
+| `apellido`      |
+
+| Tabla `libros`    |
+| :---------------- |
+| `id` (PK)         |
+| `titulo`          |
+| `fecha_publicacion` |
+| `autor_id` (FK)   |
+
+En este caso, un autor puede haber escrito **varios** libros (o ninguno), pero cada libro fue escrito por **un único** autor. La clave foránea `autor_id` en la tabla `libros` apunta a la clave primaria `id` en la tabla `autores`, estableciendo la relación.
+
+## 3. Relación Muchos a Muchos (N:M)
+
+En una relación muchos a muchos, varias filas de una tabla pueden estar relacionadas con **varias** filas de otra tabla. Para implementar una relación muchos a muchos en bases de datos relacionales, se necesita una **tabla intermedia** o **tabla de unión**. Esta tabla contiene claves foráneas que referencian las claves primarias de las dos tablas que se están relacionando.
+
+**Ejemplo:**
+
+Consideremos dos tablas: `estudiantes` y `cursos`. Un estudiante puede inscribirse en varios cursos, y un curso puede tener varios estudiantes inscritos.
+
+| Tabla `estudiantes` |
+| :------------------ |
+| `id`           (PK) |
+| `nombre`            |
+| `apellido`          |
+
+| Tabla `cursos`    |
+| :---------------- |
+| `id` (PK)         |
+| `nombre_curso`    |
+| `creditos`        |
+
+Para representar la relación muchos a muchos, creamos una tabla intermedia llamada `inscripciones`:
+
+| Tabla `inscripciones` |
+| :-------------------- |
+| `id`             (PK) |
+| `fecha_inscripcion`   |
+| `estudiante_id` (FK)  |
+| `curso_id` (FK)       |
+
+
+En la tabla `Inscripciones`, cada fila representa la inscripción de un estudiante en un curso específico. Las claves foráneas `id_estudiante` y `id_curso` referencian las claves primarias de las tablas `Estudiantes` y `Cursos`, respectivamente, permitiendo la relación muchos a muchos.
+
+## Conclusión
+
+Comprender estos tres tipos de relaciones es esencial para el diseño de bases de datos relacionales. Al identificar las relaciones correctas entre las entidades, se puede crear un modelo de datos eficiente, flexible y que refleje con precisión la realidad que se está modelando. La elección del tipo de relación impacta directamente en la estructura de las tablas y en cómo se consultan y manipulan los datos.  
+
 ### 1.2 Convenciones para Nombres
 
 - **Entidades**: En plural y minúsculas. Ej: `usuarios`, `productos`, `facturas`.
