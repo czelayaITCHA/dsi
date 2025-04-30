@@ -164,38 +164,37 @@ Es un tipo de diagrama UML que representa la estructura de un sistema orientado 
 - **Atributos**: `- privado`, `+ público`, `# protegido`
 - **Métodos (operaciones)**
 
-```plaintext
-+Persona
- -nombre: String
- -edad: int
- +saludar(): void
-```
+![image](https://github.com/user-attachments/assets/6d055a99-acf4-4409-9a92-de1e65f61db9)
+
 
 ### 4.3 Relaciones Entre Clases
 
-- **Asociación**: Una clase usa otra. (→)
+- **Asociación**: Una clase usa otra, es una relación semántica entre dos o más clases que especifica conexiones entre sus instancias. Es la relación más general y representa una conexión entre objetos que pueden existir independientemente el uno del otro (→)
 - **Agregación**: Una clase contiene otra, pero pueden vivir separadas. (◇→)
 - **Composición**: Una clase contiene otra, pero depende de ella. (⬛→)
 - **Herencia**: Una clase hereda atributos y métodos de otra. (▷)
+- **Dependencia**: 
 
-#### Ejemplo:
+### 4.3 Relaciones entre Clases
 
-```plaintext
-Vehiculo <|-- Auto
-Auto o---- Rueda
-```
+En el Diseño Orientado a Objetos, las relaciones entre clases definen cómo interactúan y colaboran los objetos de esas clases. Comprender estos tipos de relaciones es crucial para modelar sistemas complejos de manera efectiva. En UML, existen varias formas de representar estas relaciones, cada una con un significado específico.
 
-- `<|--`: Herencia
-- `o----`: Agregación
-- `*----`: Composición
+#### 4.3.1. Asociación
+
+La **asociación**, una clase usa a otra, es una relación semántica entre dos o más clases que especifica conexiones entre sus instancias. Es la relación más general y representa una conexión entre objetos que pueden existir independientemente el uno del otro.
+
+* **Representación en UML:** Una línea sólida que conecta las dos clases. Opcionalmente, puede tener flechas para indicar la navegabilidad (la dirección en la que se puede acceder a la otra clase) y etiquetas para describir el rol de cada clase en la asociación. También se pueden indicar las multiplicidades en cada extremo de la línea.
+
+**Ejemplo:**
+
+Consideremos las clases `Persona` y `Libro`. Una persona puede leer varios libros, y un libro puede ser leído por varias personas.
+
 
 ---
 
 ## 5. Ejemplo de Diagrama de Clases
 
-### Sistema de Biblioteca
 
-![Ejemplo Diagrama de Clases](https://www.plantuml.com/plantuml/png/XP5BIi8m48NtESMLoKf8UifEFK2Wa8H3fWHuHaLzrdYfDtnO38hV5-0I7hhLZpRdnSPqZbAmlqZZhEvAy30ckMK-4VAYwQFURjbnIEtpkFxCkYblFTRZeuRJSCA2aK1XU2u44ZztKUSjIye23)
 
 **Clases principales**:
 
