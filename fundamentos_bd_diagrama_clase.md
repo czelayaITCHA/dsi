@@ -52,22 +52,24 @@ En una relación uno a muchos, una fila de una tabla puede estar relacionada con
 
 **Ejemplo:**
 
-Consideremos dos tablas: `autores` y `libros`.
+Consideremos dos tablas: `clientes` y `contratos`.
 
-| Tabla `autores` |
+| Tabla `clientes`|
 | :-------------- |
 | `id` (PK)       |
 | `nombre`        |
-| `apellido`      |
+| `tipo`          |
+| `fecha_registro`|
 
-| Tabla `libros`    |
+| Tabla `contratos` |
 | :---------------- |
 | `id` (PK)         |
-| `titulo`          |
-| `fecha_publicacion` |
-| `autor_id` (FK)   |
+| `fecha`           |
+| `numero`          |
+| `monto`           |
+| `cliente_id` (FK) |
 
-En este caso, un autor puede haber escrito **varios** libros (o ninguno), pero cada libro fue escrito por **un único** autor. La clave foránea `autor_id` en la tabla `libros` apunta a la clave primaria `id` en la tabla `autores`, estableciendo la relación.
+En este caso, un cliente puede tener **varios** contratos (o ninguno), pero cada contrato fue adquirido por **un único** cliente. La clave foránea `cliente_id` en la tabla `contratos` apunta a la clave primaria `id` en la tabla `clientes`, estableciendo la relación.
 
 ## 3. Relación Muchos a Muchos (N:M)
 
@@ -104,6 +106,11 @@ En la tabla `Inscripciones`, cada fila representa la inscripción de un estudian
 ## Conclusión
 
 Comprender estos tres tipos de relaciones es esencial para el diseño de bases de datos relacionales. Al identificar las relaciones correctas entre las entidades, se puede crear un modelo de datos eficiente, flexible y que refleje con precisión la realidad que se está modelando. La elección del tipo de relación impacta directamente en la estructura de las tablas y en cómo se consultan y manipulan los datos.  
+
+## 4 - Ejemplo
+
+![image](https://github.com/user-attachments/assets/33bb7592-35df-4407-ab52-58be3e113555)
+
 
 ### 1.2 Convenciones para Nombres
 
