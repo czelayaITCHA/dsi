@@ -109,7 +109,8 @@ Comprender estos tres tipos de relaciones es esencial para el diseño de bases d
 
 ## 4 - Ejemplo
 
-![image](https://github.com/user-attachments/assets/33bb7592-35df-4407-ab52-58be3e113555)
+![image](https://github.com/user-attachments/assets/f1454a11-ddab-4c33-b9f5-9fef56a871cd)
+
 
 
 ### 1.2 Convenciones para Nombres
